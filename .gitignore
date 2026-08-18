@@ -1,0 +1,16 @@
+1 # .NET
+    2 [Bb]in/
+    3 [Oo]bj/
+    4 *.user
+    5 *.suo
+    6 *.userosscache
+    7 *.sln.docstates
+    8 *.csproj.user
+    9
+   10 # Ferramentas e IDEs
+   11 .vs/
+   12 .vscode/
+   13
+   14 # Outros
+   15 *.log
+   
