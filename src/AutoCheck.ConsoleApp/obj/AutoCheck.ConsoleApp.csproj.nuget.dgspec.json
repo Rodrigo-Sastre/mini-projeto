@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\GitHub\\mini-projeto\\autocheck-dotnet\\src\\Autocheck.consoleApp\\AutoCheck.ConsoleApp.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\mini-projeto\\autocheck-dotnet\\src\\AutoCheck.ConsoleApp\\AutoCheck.ConsoleApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\GitHub\\mini-projeto\\autocheck-dotnet\\src\\Autocheck.consoleApp\\AutoCheck.ConsoleApp.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\mini-projeto\\autocheck-dotnet\\src\\AutoCheck.ConsoleApp\\AutoCheck.ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\mini-projeto\\autocheck-dotnet\\src\\Autocheck.consoleApp\\AutoCheck.ConsoleApp.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\mini-projeto\\autocheck-dotnet\\src\\AutoCheck.ConsoleApp\\AutoCheck.ConsoleApp.csproj",
         "projectName": "AutoCheck.ConsoleApp",
-        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\mini-projeto\\autocheck-dotnet\\src\\Autocheck.consoleApp\\AutoCheck.ConsoleApp.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\mini-projeto\\autocheck-dotnet\\src\\AutoCheck.ConsoleApp\\AutoCheck.ConsoleApp.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\mini-projeto\\autocheck-dotnet\\src\\Autocheck.consoleApp\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\mini-projeto\\autocheck-dotnet\\src\\AutoCheck.ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
