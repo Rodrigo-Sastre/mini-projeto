@@ -37,9 +37,65 @@ while (executando)
 
 static void RealizarVistoria(List<Veiculo> vistorias)
 {
-    // Lógica para coletar dados do veículo e itens de inspeção
-    // (Dica: use Console.ReadLine para Marca, Modelo, Ano, etc.)
-    Console.WriteLine("Funcionalidade de Nova Vistoria em desenvolvimento...");
+    Console.WriteLine("\n--- NOVA VISTORIA ---");
+    
+    Console.Write("Tipo de veículo (Carro, Moto, Caminhao): ");
+    string tipo = Console.ReadLine() ?? "";
+    
+    Console.Write("Marca: ");
+    string marca = Console.ReadLine() ?? "";
+    
+    Console.Write("Modelo: ");
+    string modelo = Console.ReadLine() ?? "";
+    
+    Console.Write("Ano: ");
+    int ano = int.Parse(Console.ReadLine() ?? "0");
+    
+    Console.Write("Quilometragem: ");
+    double km = double.Parse(Console.ReadLine() ?? "0");
+
+    Veiculo? novoVeiculo = null;
+
+    if (tipo.Equals("Carro", StringComparison.OrdinalIgnoreCase))
+    {
+        Console.Write("Quantidade de Portas: ");
+        int portas = int.Parse(Console.ReadLine() ?? "0");
+        novoVeiculo = new Carro(marca, modelo, ano, km, portas);
+    }
+    else if (tipo.Equals("Moto", StringComparison.OrdinalIgnoreCase))
+    {
+        Console.Write("Cilindradas: ");
+        int cilindradas = int.Parse(Console.ReadLine() ?? "0");
+        novoVeiculo = new Moto(marca, modelo, ano, km, cilindradas);
+    }
+    else if (tipo.Equals("Caminhao", StringComparison.OrdinalIgnoreCase))
+    {
+        Console.Write("Quantidade de Eixos: ");
+        int eixos = int.Parse(Console.ReadLine() ?? "0");
+        Console.Write("Capacidade de Carga (Ton): ");
+        double carga = double.Parse(Console.ReadLine() ?? "0");
+        novoVeiculo = new Caminhao(marca, modelo, ano, km, eixos, carga);
+    }
+    else
+    {
+        Console.WriteLine("Tipo de veículo inválido.");
+        return;
+    }
+
+    foreach (var item in novoVeiculo.ObterChecklistObrigatorio())
+    {
+        Console.Write($"Status do item '{item}' (Bom/Regular/Ruim): ");
+        string entrada = Console.ReadLine() ?? "";
+        
+        if (string.IsNullOrEmpty(entrada)) entrada = "Bom"; 
+        
+        string status = char.ToUpper(entrada[0]) + entrada.Substring(1).ToLower();
+        
+        novoVeiculo.AdicionarItemVistoriado(item, status);
+    }
+
+    vistorias.Add(novoVeiculo);
+    Console.WriteLine("\nVistoria registrada com sucesso!");
 }
 
 static void ExibirRelatorios(List<Veiculo> vistorias, MotorVistoria motor)
