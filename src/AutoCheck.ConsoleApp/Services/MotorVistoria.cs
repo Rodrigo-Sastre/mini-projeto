@@ -18,35 +18,38 @@ namespace AutoCheck.ConsoleApp.Services
             }
 
             double pontuacaoMaxima = totalItens * 10;
-            double percentual = (pontuacaoTotal / pontuacaoMaxima) * 100;
+            double percentual = ((double)pontuacaoTotal / pontuacaoMaxima) * 100;
 
-            Console.WriteLine("\n> RESUMO DA PONTUAÇÃO:");
-            Console.WriteLine($"  - Pontuação Atingida: {pontuacaoTotal} de {pontuacaoMaxima} pontos possíveis");
-            Console.WriteLine($"  - Percentual de Aprovação: {percentual:F1}%");
-
-            string classificacao = "";
+            string classificacao = "NÃO CLASSIFICADO";
             if (percentual >= 90) classificacao = "[ APROVADO COM EXCELÊNCIA ]";
             else if (percentual >= 60) classificacao = "[ APROVADO COM APONTAMENTOS ]";
             else classificacao = "[ REPROVADO NA VISTORIA ]";
-            
+
+            Console.WriteLine("-------------------------------------------------------------------");
+            Console.WriteLine("> RESUMO DA PONTUAÇÃO:");
+            Console.WriteLine($"  - Pontuação Atingida: {pontuacaoTotal} de {pontuacaoMaxima} pontos possíveis");
+            Console.WriteLine($"  - Percentual de Aprovação: {percentual:F1}%");
             Console.WriteLine($"  - Classificação Final: {classificacao}");
+            Console.WriteLine("-------------------------------------------------------------------");
 
             Console.WriteLine("\n> RELATÓRIO DE MANUTENÇÃO:");
             bool temPendencia = false;
-            
-            Console.WriteLine("  🔴 ITENS CRÍTICOS / REPROVADOS:");
+
+            Console.WriteLine("  🔴 ITENS CRÍTICOS / REPROVADOS (AÇÃO IMEDIATA):");
             foreach (var item in veiculo.VistoriaRealizada)
             {
-                if (item.Status == "Ruim") {
-                    Console.WriteLine($"     - {item.Nome}: Reparo/Troca imediata.");
+                if (item.Status == "Ruim")
+                {
+                    Console.WriteLine($"     - {item.Nome}: Repor equipamento obrigatório ausente/danificado.");
                     temPendencia = true;
                 }
             }
 
-            Console.WriteLine("  🟡 ITENS DE ATENÇÃO:");
+            Console.WriteLine("\n  🟡 ITENS DE ATENÇÃO (REVISÃO PREVENTIVA):");
             foreach (var item in veiculo.VistoriaRealizada)
             {
-                if (item.Status == "Regular") {
+                if (item.Status == "Regular")
+                {
                     Console.WriteLine($"     - {item.Nome}: Revisão preventiva.");
                     temPendencia = true;
                 }

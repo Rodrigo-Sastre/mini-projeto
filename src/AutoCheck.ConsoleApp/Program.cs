@@ -48,32 +48,25 @@ static void RealizarVistoria(List<Veiculo> vistorias)
     Console.Write("Modelo: ");
     string modelo = Console.ReadLine() ?? "";
     
-    Console.Write("Ano: ");
-    int ano = int.Parse(Console.ReadLine() ?? "0");
-    
-    Console.Write("Quilometragem: ");
-    double km = double.Parse(Console.ReadLine() ?? "0");
+    int ano = LerInt("Ano: ");
+    double km = LerDouble("Quilometragem: ");
 
     Veiculo? novoVeiculo = null;
 
     if (tipo.Equals("Carro", StringComparison.OrdinalIgnoreCase))
     {
-        Console.Write("Quantidade de Portas: ");
-        int portas = int.Parse(Console.ReadLine() ?? "0");
+        int portas = LerInt("Quantidade de Portas: ");
         novoVeiculo = new Carro(marca, modelo, ano, km, portas);
     }
     else if (tipo.Equals("Moto", StringComparison.OrdinalIgnoreCase))
     {
-        Console.Write("Cilindradas: ");
-        int cilindradas = int.Parse(Console.ReadLine() ?? "0");
+        int cilindradas = LerInt("Cilindradas: ");
         novoVeiculo = new Moto(marca, modelo, ano, km, cilindradas);
     }
     else if (tipo.Equals("Caminhao", StringComparison.OrdinalIgnoreCase))
     {
-        Console.Write("Quantidade de Eixos: ");
-        int eixos = int.Parse(Console.ReadLine() ?? "0");
-        Console.Write("Capacidade de Carga (Ton): ");
-        double carga = double.Parse(Console.ReadLine() ?? "0");
+        int eixos = LerInt("Quantidade de Eixos: ");
+        double carga = LerDouble("Capacidade de Carga (Ton): ");
         novoVeiculo = new Caminhao(marca, modelo, ano, km, eixos, carga);
     }
     else
@@ -108,5 +101,27 @@ static void ExibirRelatorios(List<Veiculo> vistorias, MotorVistoria motor)
     foreach (var v in vistorias)
     {
         motor.ProcessarVistoria(v);
+    }
+}
+
+static int LerInt(string mensagem)
+{
+    while (true)
+    {
+        Console.Write(mensagem);
+        if (int.TryParse(Console.ReadLine(), out int valor))
+            return valor;
+        Console.WriteLine("Entrada inválida. Digite um número inteiro.");
+    }
+}
+
+static double LerDouble(string mensagem)
+{
+    while (true)
+    {
+        Console.Write(mensagem);
+        if (double.TryParse(Console.ReadLine(), out double valor))
+            return valor;
+        Console.WriteLine("Entrada inválida. Digite um número válido.");
     }
 }
