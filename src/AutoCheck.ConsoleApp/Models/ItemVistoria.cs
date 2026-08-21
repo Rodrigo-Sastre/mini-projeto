@@ -4,7 +4,6 @@ namespace AutoCheck.ConsoleApp.Models
     {
         public string Nome { get; set; }
 
-        // Inicializamos com um valor padrão para evitar o aviso CS8618
         private string _status = "Bom"; 
         
         public string Status

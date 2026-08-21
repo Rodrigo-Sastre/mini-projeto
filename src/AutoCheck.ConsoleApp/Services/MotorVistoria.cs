@@ -32,6 +32,18 @@ namespace AutoCheck.ConsoleApp.Services
             Console.WriteLine($"  - Classificação Final: {classificacao}");
             Console.WriteLine("-------------------------------------------------------------------");
 
+            Console.WriteLine($"\n> AVALIAÇÃO DOS ITENS INSPECIONADOS ({veiculo.VistoriaRealizada.Count} ITENS):");
+            foreach (var item in veiculo.VistoriaRealizada)
+            {
+                string marcador = "";
+                int pontos = 0;
+                if (item.Status == "Bom") { marcador = "[OK]"; pontos = 10; }
+                else if (item.Status == "Regular") { marcador = "[ !]"; pontos = 5; }
+                else if (item.Status == "Ruim") { marcador = "[ X]"; pontos = 0; }
+
+                Console.WriteLine($"  {marcador} {item.Nome.PadRight(30, '-')} Status: {item.Status} ({pontos} pts)");
+            }
+
             Console.WriteLine("\n> RELATÓRIO DE MANUTENÇÃO:");
             bool temPendencia = false;
 
